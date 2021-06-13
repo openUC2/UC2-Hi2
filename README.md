@@ -28,26 +28,16 @@ The microscope is compact enough to fit in cell incubators and the [Opentrons OT
 
 
 
-
-
 # Table of Content
 
-- **[Quickstart](#Quickstart)**
-- **[Electronics](#Electronics)**
-- **[Software](#Software)**
-- **[Hardware](#Hardware)**
-- **[Bill of materials](#Results)**
-- **[First Use](#First Use)**
-- **[Results](#Results)**
+**[Electronics](#Electronics)**
+**[Software](#Software)**
+**[Hardware](#Hardware)**
+**[Bill of materials](#Results)**
+**[Results](#Results)**
 
 
-## Further reading
-- Low-cost stage scanner: [PLoS One](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0194063)
-- MicroscoPi: [Biorxiv](https://micronoxford.com/microscopi-3d-printed-1)
-- Incubot: [HardwareX](https://www.sciencedirect.com/science/article/pii/S2468067221000183)
-- Opentrons [Website](www.opentrons.com)
-- OpenFlexure Microscope [Website](https://openflexure.org/)
-- openUC2 [Github](https://github.com/openUC2/)
+
 
 ## In-Action
 
@@ -66,10 +56,13 @@ Using a laser excitation and a white-light Led mounted in one of the place of th
 </p>
 
 
+### More advanced pipetting and imaging protocols
+
+Using the Opentrons Jupyter Notebook integration together with the REST-API based [Openflexure Microscope Pylcient](https://gitlab.com/openflexure/openflexure-microscope-pyclient/-/blob/master/openflexure_microscope_client), one can easily created complicated pipetting workflows that require an imaging step in between. The below expdreiment shows an automated workflow where yeast cells were seeded at varying concentrations and different reagents where added sequentially. In between the microscope automatically performs whole well plate scans.
+
 <p align="center">
 <a href="#logo" name="logo"><img src="./IMAGES/FullExperiment.gif" width="600"></a>
 </p>
-
 
 ### Pipetting Workflows combined with imaging
 
@@ -80,12 +73,21 @@ Using a laser excitation and a white-light Led mounted in one of the place of th
 
 # SOFTWARE
 
-A detailed set of instructions for installing the Openflexure Server (OFM Server) can be found in a dedicated [README_SOFTWARE.md](README_SOFTWARE.md).
+**Warning:** This is still under strong development. We derived the software to control the GRBL-based XYZt stage from the [Openflexure microscope project](https://gitlab.com/beniroquai/openflexure-microscope-server) by Bowman et al.
+Instead of using a Raspberry Pi camera, we use an Nvidia Jetson Nano singleboard computer and run a customized version of the OFM server that can control the GRBL board and the monochrome CMOS camera.
 
+A detailed set of instructions for installing the Openflexure Server (OFM Server) can be found in a dedicated [README_SOFTWARE.md](README_SOFTWARE.md) (it is under construction..). In case you want a preinstalled image, please contact us!
 
 
 # HARDWARE
 
+Below we describe how the XY Stage can be build and assembled in order to replicate the whole system as shown in the rendering above one needs additional parts that can be found in the original [openUC2 repository](https://github.com/bionanoimaging/UC2-GIT). The most important modules you will need are the following:
+
+- [Baser Camera](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_BaslerCam)
+- [Dichroic Beamsplitter](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_Dichroic_Beamsplitter)
+- [45° Silver Protected Mirror](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_Mirror_45_Thorlabs)
+- [Z-STage using NEMA motor](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_Z-STAGE_NEMA_MGN)
+- [Laser Module for fluorescence](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_Laser)
 
 ## XY Stage
 
@@ -96,6 +98,12 @@ For scanning a full multi-well plate we decided to rely on a commercially availa
 </p>
 
 We use the device as is and simply swap the 450nm laser with a customized sample-plate holder which ensures proper plate leveling. The working range is sufficiently large to scan the whole plate. For the integration of this device into the UC2 standard, one only requires 5 additional 3D printed parts which direclty adapt to the 3D printed cubes + baseplates (v3 -> so you need either the injection moulded parts or need to add the 5 screws for proper fitting).
+
+<p align="center">
+<a href="#logo" name="logo"><img src="./IMAGES/ZStage_old_18.jpg" width="500"></a>
+</p>
+*The plate can easily adapt all kinds of samples*
+
 
 Theoretically one can directly be used using the internal 32Bit processing board using the customized [python wrapper](./PYTHON/nejeboard.py). Nevertheless, we found its functionality rather limited, and decided to use an additional CNC controler board to explore the full functionalities including the Z-stage control, Laser and LED control.
 
@@ -188,6 +196,19 @@ Since 3D printers are not really reliable in terms of accuracy and the stage is 
 
 We are working on an extension which will replace this very soon!
 
+## Showcase
+
+Some results will show up here
+
+
+## Further reading
+- Low-cost stage scanner: [PLoS One](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0194063)
+- MicroscoPi: [Biorxiv](https://micronoxford.com/microscopi-3d-printed-1)
+- Incubot: [HardwareX](https://www.sciencedirect.com/science/article/pii/S2468067221000183)
+- Opentrons [Website](www.opentrons.com)
+- OpenFlexure Microscope [Website](https://openflexure.org/)
+- openUC2 [Github](https://github.com/openUC2/)
+
 
 ## Get Involved
 
@@ -204,26 +225,6 @@ You're free to fork the project and enhance it. If you have any suggestions to i
 Please find the type of licenses [here](./License.md)
 
 REMARK: All files have been designed using Autodesk Inventor 2019 (EDUCATION)
-
-## Showcase
-
-### First (poor) result
-
-This is the first manually stitched crystalized sugar on a wellplate ;-)
-
-<p align="center">
-<img src="./IMAGES/Stitch1.jpeg" width="400">
-</p>
-
-### Second (improved) result
-
-HeLa cells in a 24-well plate:
-
-<p align="center">
-<img src="./IMAGES/StitchResultHela.jpeg" width="600">
-</p>
-
-
 
 
 ## Credits
