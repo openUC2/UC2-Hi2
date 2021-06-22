@@ -1,5 +1,9 @@
+<p align="left">
+<a href="#logo" name="logo"><img src="https://raw.githubusercontent.com/bionanoimaging/UC2-GIT/master/IMAGES/UC2_logo_text.png" width="400"></a>
+</p>
 
 # openUC2 High-throughput module (Hi2)
+---
 
 This device is intended to help you use a very simple [GRBL](https://github.com/grbl/grbl)-based Arduino Shield controlled by a Raspberry Pi/Nvidia Jetson to automatically image a multiwell plate to with a UC2-based microscope. Curious to see what this looks like? Scroll to the very bottom of the page.
 
