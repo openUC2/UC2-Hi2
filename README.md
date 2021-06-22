@@ -95,7 +95,7 @@ Below we describe how the XY Stage can be build and assembled in order to replic
 
 ## XY Stage
 
-For scanning a full multi-well plate we decided to rely on a commercially available laser engraving system from Nejetools.com. The Neje Master Mini 2 costs around 100-160€ and is available in many countries. The design has been replicated by many other brands and can be found for even lower prices at Aliexpress/Alibaba or alike. The overall mechanical design looks like this:
+For scanning a full multi-well plate we decided to rely on a commercially available laser engraving system from [Nejetools.com](Nejetools.com). The Neje Master Mini 2 costs around 100-160€ and is available in many countries. The design has been replicated by many other brands and can be found for even lower prices at Aliexpress/Alibaba or alike. The overall mechanical design looks like this:
 
 <p align="center">
 <a><img src="https://images-na.ssl-images-amazon.com/images/I/61LtnyMEFeL._AC_SL1200_.jpg" width="600"></a>
@@ -106,6 +106,7 @@ We use the device as is and simply swap the 450nm laser with a customized sample
 <p align="center">
 <a href="#logo" name="logo"><img src="./IMAGES/ZStage_old_18.jpg" width="500"></a>
 </p>
+
 *The plate can easily adapt all kinds of samples*
 
 
@@ -232,5 +233,5 @@ Please find the type of licenses [here](./License.md)
 REMARK: All files have been designed using Autodesk Inventor 2019 (EDUCATION)
 
 
-## Credits
+## Collaborate
 If you find this project useful, please like this repository, follow us on Twitter and cite the webpage! :-)
