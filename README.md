@@ -34,14 +34,14 @@ The microscope is compact enough to fit in cell incubators and the [Opentrons OT
 
 # Table of Content
 
-**[Electronics](#Electronics)**
-**[Software](#Software)**
-**[Hardware](#Hardware)**
-**[Bill of materials](#Results)**
-**[Results](#Results)**
-
-
-
+- **[In-Action](#In-Action)**
+- **[Inside the Opentrons](#Inside the Opentrons)**
+- **[Bill of material](#Bill of material)**
+- **[Get Involved](#Get Involved)**
+- **[Software](#Software)**
+- **[Hardware](#Hardware)**
+- **[Bill of materials](#Results)**
+- **[Results](#Results)**
 
 ## In-Action
 
