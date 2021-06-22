@@ -5,7 +5,7 @@
 # openUC2 High-throughput module (Hi2)
 ---
 
-This device is intended to help you use a very simple [GRBL](https://github.com/grbl/grbl)-based Arduino Shield controlled by a Raspberry Pi/Nvidia Jetson to automatically image a multiwell plate to with a UC2-based microscope. Curious to see what this looks like? Scroll to the very bottom of the page.
+This device is intended to help you use a very simple [GRBL](https://github.com/grbl/grbl)-based Arduino Shield controlled by a Raspberry Pi/Nvidia Jetson to automatically image a multiwell plate to with a UC2-based microscope. Curious to see what this looks like? Keep scrolling.
 
 <p align="center">
 <a href="#logo" name="logo"><img src="./IMAGES/topbottom.PNG" width="600"></a>
