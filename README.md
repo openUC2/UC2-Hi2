@@ -62,7 +62,7 @@ Using a laser excitation and a white-light Led mounted in one of the place of th
 
 ### More advanced pipetting and imaging protocols
 
-Using the Opentrons Jupyter Notebook integration together with the REST-API based [Openflexure Microscope Pylcient](https://gitlab.com/openflexure/openflexure-microscope-pyclient/-/blob/master/openflexure_microscope_client), one can easily created complicated pipetting workflows that require an imaging step in between. The below expdreiment shows an automated workflow where yeast cells were seeded at varying concentrations and different reagents where added sequentially. In between the microscope automatically performs whole well plate scans.
+Using the Opentrons Jupyter Notebook integration together with the REST-API based [Openflexure Microscope Pylcient](https://gitlab.com/openflexure/openflexure-microscope-pyclient/-/blob/master/openflexure_microscope_client), one can easily created complicated pipetting workflows that require an imaging step in between. The below experiment shows an automated workflow where yeast cells were seeded at varying concentrations and different reagents where added sequentially. In between the microscope automatically performs whole well plate scans.
 
 <p align="center">
 <a href="#logo" name="logo"><img src="./IMAGES/FullExperiment.gif" width="600"></a>
@@ -87,7 +87,7 @@ A detailed set of instructions for installing the Openflexure Server (OFM Server
 
 Below we describe how the XY Stage can be build and assembled in order to replicate the whole system as shown in the rendering above one needs additional parts that can be found in the original [openUC2 repository](https://github.com/bionanoimaging/UC2-GIT). The most important modules you will need are the following:
 
-- [Baser Camera](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_BaslerCam)
+- [Allied Vision Camera (ALVIUM)](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_AlliedVision_Alvium)
 - [Dichroic Beamsplitter](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_Dichroic_Beamsplitter)
 - [45° Silver Protected Mirror](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_Mirror_45_Thorlabs)
 - [Z-STage using NEMA motor](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_Z-STAGE_NEMA_MGN)
@@ -123,7 +123,8 @@ Below you will find all components necessary to build this device
 
 #### 3D printing files
 
-All these files need be printed. We used a Prusa i3 MK3 using PLA Prusmant (Galaxy Black) at layer height 0.3 mm and infill 80%.
+All these files need be printed. We used a Prusa i3 MK3 using PLA Prusamant (Galaxy Black) at layer height 0.3 mm and infill 80%.
+For all parts that can bend (e.g. sample holder) use PETG Prusament at 100% infill.
 
 
 |  Type | Details  |  Price | Link  |
@@ -159,7 +160,7 @@ This is used in the current version of the setup
 <a> <img src="./IMAGES/XY_Stage_6.jpg" width="300"></a>
 </p>
 
-***2.*** *Insert the long M3 Screws in the wholes and add the spring to it*
+***2.*** *Insert the long M3 screws in the wholes and add the spring to it*
 
 <p align="center">
 <a> <img src="./IMAGES/XY_Stage_5.jpg" width="300"></a>
