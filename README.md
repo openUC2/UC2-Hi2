@@ -122,6 +122,10 @@ If everything is connected properly, the device can for example also be used as 
 
 Below you will find all components necessary to build this device
 
+#### Design files
+
+All design files for Autodesk Inventor 2019 Student Edition can be found in the folder [INVENTOR](https://github.com/openUC2/UC2-Hi2/tree/master/INVENTOR).
+
 #### 3D printing files
 
 All these files need be printed. We used a Prusa i3 MK3 using PLA Prusamant (Galaxy Black) at layer height 0.3 mm and infill 80%.
