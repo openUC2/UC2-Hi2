@@ -120,7 +120,8 @@ If everything is connected properly, the device can for example also be used as 
 
 ### Bill of material
 
-Below you will find all components necessary to build this device
+Below you will find all components necessary to build this device. 
+An updated version in form of an excel sheet can be founde [here](UC2_Microscope_BillOfMaterial_Hi2.xlsx).
 
 #### Design files
 
