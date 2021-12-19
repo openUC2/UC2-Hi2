@@ -18,31 +18,36 @@ ACTION_RUNNING_KEYWORDS = ["idle", "pending", "running"]
 ACTION_OUTPUT_KEYS = ["output", "return"]
 
 class MicroscopeClient(object):
-    def __init__(self, host, port=5000):
-        if False: # isinstance(host, zeroconf.ServifceInfo):
-            # If we have an mDNS ServiceInfo object, try each address
-            # in turn, to see if it works (sometimes you get addresses
-            # that don't work, if your network config is odd).
-            # TODO: figure out why we can get mDNS packets even when
-            # the microscope is unreachable by that IP
-            for addr in host.parsed_addresses():
-                if ":" in addr:
-                    self.host = f"[{addr}]"
-                else:
-                    self.host = addr
-                self.port = host.port
-                try:
-                    self.get_json(self.base_uri)
-                    break
-                except:
-                    logging.info(f"Couldn't connect to {addr}, we'll try another address if possible.")
+    def __init__(self, host, port=5000, is_simulate = False):
+        self.is_simulate = is_simulate
+        if not self.is_simulate:
+            if False: # isinstance(host, zeroconf.ServifceInfo):
+                # If we have an mDNS ServiceInfo object, try each address
+                # in turn, to see if it works (sometimes you get addresses
+                # that don't work, if your network config is odd).
+                # TODO: figure out why we can get mDNS packets even when
+                # the microscope is unreachable by that IP
+                for addr in host.parsed_addresses():
+                    if ":" in addr:
+                        self.host = f"[{addr}]"
+                    else:
+                        self.host = addr
+                    self.port = host.port
+                    try:
+                        self.get_json(self.base_uri)
+                        break
+                    except:
+                        logging.info(f"Couldn't connect to {addr}, we'll try another address if possible.")
+            else:
+                self.host = host
+                self.port = port
+                self.get_json(self.base_uri)
+            logging.info(f"Connecting to microscope {self.host}:{self.port}")
+            self.populate_extensions()
         else:
-            self.host = host
-            self.port = port
-            self.get_json(self.base_uri)
-        logging.info(f"Connecting to microscope {self.host}:{self.port}")
-        self.populate_extensions()
+            print("Microscope is in simulation mode")
 
+            
     extensions = None
         
     @property
@@ -79,7 +84,14 @@ class MicroscopeClient(object):
     @property
     def position(self):
         """Return the position of the stage as a dictionary"""
-        response = self.get_json("/instrument/state/stage/position")
+        if self.is_simulate:
+            response = {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+        else:
+            response = self.get_json("/instrument/state/stage/position")
         return response
     
     def get_position_array(self):
@@ -101,9 +113,9 @@ class MicroscopeClient(object):
             pos = {k: int(position[i]) for i, k in enumerate(["x", "y", "z"][:len(position)])}
         pos['absolute'] = absolute
         pos['blocking'] = blocking
-        response = self.post_json("/actions/stage/move", pos)
-        return response
-
+        if not self.is_simulate:
+            return self.post_json("/actions/stage/move", pos)
+        
     def move_rel(self, position):
         """Move the stage by a given amount.  Zero should not move.
         
@@ -126,20 +138,27 @@ class MicroscopeClient(object):
         }
         if params:
             payload.update(params)
-        r = requests.post(self.base_uri + "/actions/camera/capture", json=payload)
-        return r
-    
+        
+        if not self.is_simulate:
+            return requests.post(self.base_uri + "/actions/camera/capture", json=payload)
+        
     def grab_image_np(self):
-        """Capture a raw image and return it as a numpy array"""     
-        r = requests.get(self.base_uri + "/streams/snapshot_raw")
-        r.raise_for_status()
-        serialized =  r.content
-        return pickle.loads(serialized)
-       
+        """Capture a raw image and return it as a numpy array""" 
+        if not self.is_simulate:
+            r = requests.get(self.base_uri + "/streams/snapshot_raw")
+            r.raise_for_status()
+            serialized =  r.content
+            return pickle.loads(serialized)
+        else:
+            return np.random.randi(100,100)
+
     def grab_image_raw(self):
-        r = requests.get(self.base_uri + "/streams/snapshot")
-        r.raise_for_status()
-        return r.content
+        if not self.is_simulate:
+            r = requests.get(self.base_uri + "/streams/snapshot")
+            r.raise_for_status()
+            return r.content
+        else:
+            return np.random.randi(100,100)
     
     def capture_image(self, params: dict = None):
         """Capture an image and return it as a PIL image object"""
@@ -221,44 +240,55 @@ class MicroscopeClient(object):
         return self.extensions["org.openflexure.camera_stage_mapping"]["calibrate_xy"].post_json()
 
     def home(self):
-        payload = {
-          "n_scans": 1,
-          "task_name": "Homing"
-        }
-        self.extensions['org.openflexure.stagecalib_extension']['stage_calib_api'].post_json(payload)
+        print("Microscope is homing...")
+        if not self.is_simulate:
+            payload = {
+              "n_scans": 1,
+              "task_name": "Homing"
+            }
+            self.extensions['org.openflexure.stagecalib_extension']['stage_calib_api'].post_json(payload)
 
 
     def plate_shaking(self, time_shaking):
-        payload = {
-          "n_scans": time_shaking,
-          "task_name": "Plate-Shaking"
-        }
-        self.extensions['org.openflexure.stagecalib-extension']['stage_calib_api'].post_json(payload)
+        print("Microscope is shaking...")
+        if not self.is_simulate:
+            payload = {
+              "n_scans": time_shaking,
+              "task_name": "Plate-Shaking"
+            }
+            self.extensions['org.openflexure.stagecalib-extension']['stage_calib_api'].post_json(payload)
      
         
         
     def set_laser_led(self, i_laser=0, i_led=0):
-        payload = {
-          "i_laser": i_laser,
-          "i_led": i_led
-        }
-        self.extensions['org.openflexure.laser_extension']['laser_api'].post_json(payload)
+        if not self.is_simulate:
+            payload = {
+              "i_laser": i_laser,
+              "i_led": i_led
+            }
+            print("Setting Laser/LED to:", i_laser, i_led)
+            self.extensions['org.openflexure.laser_extension']['laser_api'].post_json(payload)
 
     def autofocus_coarse(self, dz=1000, nz=11, is_uselight=False):
-        if is_uselight:
-            self.set_laser_led(0,0)
-            time.sleep(.2)
-        payload = {'dz': list(np.linspace(-dz,dz,nz))}
-        #print("Focusing: "+str(payload))
-        self.extensions["org.openflexure.autofocus"]["autofocus"].post_json(payload)
-        if is_uselight:
-            self.set_laser_led(0,0)
-        return self.position['z']
+        '''
+        dz is the distance +/- z the focus will search for highest contrast/sharpness
+        nz is the number of stepp it will search for the focus 
+        '''
+        if not self.is_simulate:
+            payload = {'dz': list(np.linspace(-dz,dz,nz))}
+            #print("Focusing: "+str(payload))
+            self.extensions["org.openflexure.autofocus"]["autofocus"].post_json(payload)
+            return int(self.position['z'])
+        else:
+            return -1
 
     def autofocus(self, dz):
         """Move the stage up and down, and pick the sharpest position."""
-        params={'dz': dz}
-        return self.extensions["org.openflexure.autofocus"]["fast_autofocus"].post_json(params)
+        if not self.is_simulate:
+            params={'dz': dz}
+            return self.extensions["org.openflexure.autofocus"]["fast_autofocus"].post_json(params)
+        else:
+            return -1        
 
     def laplacian_autofocus(self, params: dict):
         """run a slower autofocus at heights dz respective to the starting point"""
