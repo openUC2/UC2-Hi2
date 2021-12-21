@@ -1,5 +1,9 @@
+<p align="left">
+<a href="#logo" name="logo"><img src="https://raw.githubusercontent.com/bionanoimaging/UC2-GIT/master/IMAGES/UC2_logo_text.png" width="400"></a>
+</p>
 
 # openUC2 High-throughput module (Hi2)
+---
 
 **NEW VERSION - PLEASE LOOK AT THE VERY END**
 
@@ -34,14 +38,14 @@ The microscope is compact enough to fit in cell incubators and the [Opentrons OT
 
 # Table of Content
 
-**[Electronics](#Electronics)**
-**[Software](#Software)**
-**[Hardware](#Hardware)**
-**[Bill of materials](#Results)**
-**[Results](#Results)**
-
-
-
+- **[In-Action](#In-Action)**
+- **[Inside the Opentrons](#Inside the Opentrons)**
+- **[Bill of material](#Bill of material)**
+- **[Get Involved](#Get Involved)**
+- **[Software](#Software)**
+- **[Hardware](#Hardware)**
+- **[Bill of materials](#Results)**
+- **[Results](#Results)**
 
 ## In-Action
 
@@ -62,7 +66,7 @@ Using a laser excitation and a white-light Led mounted in one of the place of th
 
 ### More advanced pipetting and imaging protocols
 
-Using the Opentrons Jupyter Notebook integration together with the REST-API based [Openflexure Microscope Pylcient](https://gitlab.com/openflexure/openflexure-microscope-pyclient/-/blob/master/openflexure_microscope_client), one can easily created complicated pipetting workflows that require an imaging step in between. The below expdreiment shows an automated workflow where yeast cells were seeded at varying concentrations and different reagents where added sequentially. In between the microscope automatically performs whole well plate scans.
+Using the Opentrons Jupyter Notebook integration together with the REST-API based [Openflexure Microscope Pylcient](https://gitlab.com/openflexure/openflexure-microscope-pyclient/-/blob/master/openflexure_microscope_client), one can easily created complicated pipetting workflows that require an imaging step in between. The below experiment shows an automated workflow where yeast cells were seeded at varying concentrations and different reagents where added sequentially. In between the microscope automatically performs whole well plate scans.
 
 <p align="center">
 <a href="#logo" name="logo"><img src="./IMAGES/FullExperiment.gif" width="600"></a>
@@ -89,7 +93,7 @@ A detailed set of instructions for installing the Openflexure Server (OFM Server
 
 Below we describe how the XY Stage can be build and assembled in order to replicate the whole system as shown in the rendering above one needs additional parts that can be found in the original [openUC2 repository](https://github.com/bionanoimaging/UC2-GIT). The most important modules you will need are the following:
 
-- [Baser Camera](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_BaslerCam)
+- [Allied Vision Camera (ALVIUM)](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_AlliedVision_Alvium)
 - [Dichroic Beamsplitter](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_Dichroic_Beamsplitter)
 - [45° Silver Protected Mirror](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_Mirror_45_Thorlabs)
 - [Z-STage using NEMA motor](https://github.com/bionanoimaging/UC2-GIT/tree/master/CAD/ASSEMBLY_CUBE_Z-STAGE_NEMA_MGN)
@@ -97,7 +101,7 @@ Below we describe how the XY Stage can be build and assembled in order to replic
 
 ## XY Stage
 
-For scanning a full multi-well plate we decided to rely on a commercially available laser engraving system from Nejetools.com. The Neje Master Mini 2 costs around 100-160€ and is available in many countries. The design has been replicated by many other brands and can be found for even lower prices at Aliexpress/Alibaba or alike. The overall mechanical design looks like this:
+For scanning a full multi-well plate we decided to rely on a commercially available laser engraving system from [Nejetools.com](Nejetools.com). The Neje Master Mini 2 costs around 100-160€ and is available in many countries. The design has been replicated by many other brands and can be found for even lower prices at Aliexpress/Alibaba or alike. The overall mechanical design looks like this:
 
 <p align="center">
 <a><img src="https://images-na.ssl-images-amazon.com/images/I/61LtnyMEFeL._AC_SL1200_.jpg" width="600"></a>
@@ -108,6 +112,7 @@ We use the device as is and simply swap the 450nm laser with a customized sample
 <p align="center">
 <a href="#logo" name="logo"><img src="./IMAGES/ZStage_old_18.jpg" width="500"></a>
 </p>
+
 *The plate can easily adapt all kinds of samples*
 
 
@@ -121,11 +126,17 @@ If everything is connected properly, the device can for example also be used as 
 
 ### Bill of material
 
-Below you will find all components necessary to build this device
+Below you will find all components necessary to build this device.
+An updated version in form of an excel sheet can be founde [here](UC2_Microscope_BillOfMaterial_Hi2.xlsx).
+
+#### Design files
+
+All design files for Autodesk Inventor 2019 Student Edition can be found in the folder [INVENTOR](https://github.com/openUC2/UC2-Hi2/tree/master/INVENTOR).
 
 #### 3D printing files
 
-All these files need be printed. We used a Prusa i3 MK3 using PLA Prusmant (Galaxy Black) at layer height 0.3 mm and infill 80%.
+All these files need be printed. We used a Prusa i3 MK3 using PLA Prusamant (Galaxy Black) at layer height 0.3 mm and infill 80%.
+For all parts that can bend (e.g. sample holder) use PETG Prusament at 100% infill.
 
 
 |  Type | Details  |  Price | Link  |
@@ -161,7 +172,7 @@ This is used in the current version of the setup
 <a> <img src="./IMAGES/XY_Stage_6.jpg" width="300"></a>
 </p>
 
-***2.*** *Insert the long M3 Screws in the wholes and add the spring to it*
+***2.*** *Insert the long M3 screws in the wholes and add the spring to it*
 
 <p align="center">
 <a> <img src="./IMAGES/XY_Stage_5.jpg" width="300"></a>
@@ -233,7 +244,7 @@ Please find the type of licenses [here](./License.md)
 REMARK: All files have been designed using Autodesk Inventor 2019 (EDUCATION)
 
 
-## Credits
+## Collaborate
 If you find this project useful, please like this repository, follow us on Twitter and cite the webpage! :-)
 
 
@@ -243,7 +254,7 @@ If you find this project useful, please like this repository, follow us on Twitt
 
 # NEW Version
 
-The documentation will be updated soon. 
+The documentation will be updated soon.
 
 The new assembly is based on a similar Laser engraver:
 
@@ -251,8 +262,8 @@ The new assembly is based on a similar Laser engraver:
 <a> <img src="./IMAGES/TOTEM.png" width="600"></a>
 </p>
 
-At aliexpress look for 
-*Twotrees TT-2.5 TT-5.5 Laser Engraving Machine 7.5W 20W 3D Printer DIY Kits Wood Router/Cutter/Laser Goggles With Laser Module* 
+At aliexpress look for
+*Twotrees TT-2.5 TT-5.5 Laser Engraving Machine 7.5W 20W 3D Printer DIY Kits Wood Router/Cutter/Laser Goggles With Laser Module*
 or follow this link: [https://www.aliexpress.com/item/4000033085016.html?spm=a2g0s.9042311.0.0.785a4c4dxIXhFu](https://www.aliexpress.com/item/4000033085016.html?spm=a2g0s.9042311.0.0.785a4c4dxIXhFu)
 
 ## Assembly
@@ -275,4 +286,4 @@ or follow this link: [https://www.aliexpress.com/item/4000033085016.html?spm=a2g
 
 ```
 Application_UC2_Hi2_Uppsala_v3_00_Alvium_Step_USB90_S-Mount_ClosedHousing_2019-Mar-28_32.stlApplication_UC2_Hi2_Uppsala_v3_00_BallMagnets_5mm_single_53.stlApplication_UC2_Hi2_Uppsala_v3_00_BallMagnets_5mm_single_54.stlApplication_UC2_Hi2_Uppsala_v3_00_BallMagnets_5mm_single_55.stlApplication_UC2_Hi2_Uppsala_v3_00_BallMagnets_5mm_single_137.stlApplication_UC2_Hi2_Uppsala_v3_00_BallMagnets_5mm_single_138.stlApplication_UC2_Hi2_Uppsala_v3_00_BallMagnets_5mm_single_139.stlApplication_UC2_Hi2_Uppsala_v3_00_bearing_ball_2mm_74.stlApplication_UC2_Hi2_Uppsala_v3_00_bearing_ball_2mm_75.stlApplication_UC2_Hi2_Uppsala_v3_00_bearing_ball_2mm_76.stlApplication_UC2_Hi2_Uppsala_v3_00_Chroma_Dichroic_25x,3x1_116.stlApplication_UC2_Hi2_Uppsala_v3_00_Comar_Filter_25Dia_117.stlApplication_UC2_Hi2_Uppsala_v3_00_Comar_Filter_25Dia_118.stlApplication_UC2_Hi2_Uppsala_v3_00_Comar_Filter_25Dia_121.stlApplication_UC2_Hi2_Uppsala_v3_00_Laser_532nm_200mw_40.stlApplication_UC2_Hi2_Uppsala_v3_00_MGN12H, LINEAR GUIDE BLOCK_68.stlApplication_UC2_Hi2_Uppsala_v3_00_Microscope_Objective_Lens10x_144.stlApplication_UC2_Hi2_Uppsala_v3_00_Motorcoupling_5mm_M3_65.stlApplication_UC2_Hi2_Uppsala_v3_00_MTP_96-welplate_10.stlApplication_UC2_Hi2_Uppsala_v3_00_NEMA11_77.stlApplication_UC2_Hi2_Uppsala_v3_00_NEMA17_2.stlApplication_UC2_Hi2_Uppsala_v3_00_NEMA17_11.stlApplication_UC2_Hi2_Uppsala_v3_00_NEMA17_24.stlApplication_UC2_Hi2_Uppsala_v3_00_Spacer_13mm_29.stlApplication_UC2_Hi2_Uppsala_v3_00_Thorlabs_Cage_CP33_M_125.stlApplication_UC2_Hi2_Uppsala_v3_00_Thorlabs_PF10-03-P01-Step_59.stlApplication_UC2_Hi2_Uppsala_v3_00_Thorlabs_PF10-03-P01-Step_63.stlApplication_UC2_Hi2_Uppsala_v3_00_Thorlabs_PF10-03-P01-Step_143.stlApplication_UC2_Hi2_Uppsala_v3_00_Thorlabs_Rod_6mm_8.stlApplication_UC2_Hi2_Uppsala_v3_00_Thorlabs_Rod_6mm_12.stlApplication_UC2_Hi2_Uppsala_v3_00_VSlot_20mm_200mm_16.stlApplication_UC2_Hi2_Uppsala_v3_00_VSlot_20mm_200mm_18.stlApplication_UC2_Hi2_Uppsala_v3_00_VSlot_20mm_250mm_17.stlApplication_UC2_Hi2_Uppsala_v3_00_VSlot_20mm_250mm_19.stlApplication_UC2_Hi2_Uppsala_v3_00_VSlot_20mm_250mm_28.stlApplication_UC2_Hi2_Uppsala_v3_00_VSlot_90degree_bracket_22.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_83.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_84.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_85.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_86.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_87.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_88.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_89.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_90.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_91.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_92.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_93.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_94.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_95.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_96.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_97.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_98.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_99.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_100.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_101.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_102.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_103.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_104.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_105.stlApplication_UC2_Hi2_Uppsala_v3_10_Base_puzzle_v3_106.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_30.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_31.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_34.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_35.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_38.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_39.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_43.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_44.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_60.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_61.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_78.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_79.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_80.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_81.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_107.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_108.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_109.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_110.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_111.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_112.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_113.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_114.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_123.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_124.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_127.stlApplication_UC2_Hi2_Uppsala_v3_10_Cube_1x1_IM_128.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_insert_AlliedVision_Alvium_v3_33.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_insert_AlliedVision_Alvium_v3_41.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_Insert_Beamsplittercube_Base_25x35_v3_115.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_Insert_Beamsplittercube_Dichroicmirror_Retainplate_25_36_122.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_Insert_Beamsplittercube_Retainring_25mm_119.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_Insert_Beamsplittercube_Retainring_25mm_120.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_Insert_Kinematic_Mirrormount_45_base_part1_45.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_Insert_Kinematic_Mirrormount_45_base_part1_129.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_Insert_Kinematic_Mirrormount_45_base_part2_46.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_Insert_Kinematic_Mirrormount_45_base_part2_130.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_Insert_Kinematic_Mirrormount_45_Thorlabsadapter_56.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_Insert_Kinematic_Mirrormount_45_Thorlabsadapter_140.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_insert_Laser_Block_adjustable_v3_42.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_Insert_Lens_165mm_36.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_Insert_Lens_165mm_clamp_37.stlApplication_UC2_Hi2_Uppsala_v3_20_Cube_Insert_Mirror_Holder_Thorlabs_v3_62.stlApplication_UC2_Hi2_Uppsala_v3_20_Insert_Thorlabs_holder_v3_126.stlApplication_UC2_Hi2_Uppsala_v3_30_Adapter_M3_nut_47.stlApplication_UC2_Hi2_Uppsala_v3_30_Adapter_M3_nut_48.stlApplication_UC2_Hi2_Uppsala_v3_30_Adapter_M3_nut_49.stlApplication_UC2_Hi2_Uppsala_v3_30_Adapter_M3_nut_131.stlApplication_UC2_Hi2_Uppsala_v3_30_Adapter_M3_nut_132.stlApplication_UC2_Hi2_Uppsala_v3_30_Adapter_M3_nut_133.stlApplication_UC2_Hi2_Uppsala_v3_30_Cube_Z_Focus_Drylin_NEMA_slide_part1_70.stlApplication_UC2_Hi2_Uppsala_v3_30_Cube_Z_Focus_MGN_NEMA_adapter_RMS_67.stlApplication_UC2_Hi2_Uppsala_v3_30_Cube_Z_Focus_MGN_NEMA_base_v3_64.stlApplication_UC2_Hi2_Uppsala_v3_30_Cube_Z_Focus_MGN_NEMA_counterplate_82.stlApplication_UC2_Hi2_Uppsala_v3_30_Cube_Z_Focus_MGN_NEMA_Motoradapter_28BYJ_v3_72.stlApplication_UC2_Hi2_Uppsala_v3_30_Cube_Z_Focus_MGN_NEMA_Motoradapter_NEMA11_v3_71.stlApplication_UC2_Hi2_Uppsala_v3_30_Cube_Z_Focus_MGN_NEMA_Motorsupport_73.stlApplication_UC2_Hi2_Uppsala_v3_30_Cube_Z_Focus_MGN_NEMA_rail_69.stlApplication_UC2_Hi2_Uppsala_v3_30_Cube_Z_Focus_MGN12_NEMA_slide_part2_66.stlApplication_UC2_Hi2_Uppsala_v3_DIN 912 - M3 x 0,5 x 12 x 10,75_50.stlApplication_UC2_Hi2_Uppsala_v3_DIN 912 - M3 x 0,5 x 12 x 10,75_51.stlApplication_UC2_Hi2_Uppsala_v3_DIN 912 - M3 x 0,5 x 12 x 10,75_52.stlApplication_UC2_Hi2_Uppsala_v3_DIN 912 - M3 x 0,5 x 12 x 10,75_57.stlApplication_UC2_Hi2_Uppsala_v3_DIN 912 - M3 x 0,5 x 12 x 10,75_58.stlApplication_UC2_Hi2_Uppsala_v3_DIN 912 - M3 x 0,5 x 12 x 10,75_134.stlApplication_UC2_Hi2_Uppsala_v3_DIN 912 - M3 x 0,5 x 12 x 10,75_135.stlApplication_UC2_Hi2_Uppsala_v3_DIN 912 - M3 x 0,5 x 12 x 10,75_136.stlApplication_UC2_Hi2_Uppsala_v3_DIN 912 - M3 x 0,5 x 12 x 10,75_141.stlApplication_UC2_Hi2_Uppsala_v3_DIN 912 - M3 x 0,5 x 12 x 10,75_142.stlApplication_UC2_Hi2_Uppsala_v3_Neje_Base_Slide_y_stop_9.stlApplication_UC2_Hi2_Uppsala_v3_Neje_puzzle_adapterplate_v3_20.stlApplication_UC2_Hi2_Uppsala_v3_Neje_puzzle_adapterplate_v3_21.stlApplication_UC2_Hi2_Uppsala_v3_Neje_Rolls_3.stlApplication_UC2_Hi2_Uppsala_v3_Neje_Rolls_4.stlApplication_UC2_Hi2_Uppsala_v3_Neje_Rolls_5.stlApplication_UC2_Hi2_Uppsala_v3_Neje_Rolls_13.stlApplication_UC2_Hi2_Uppsala_v3_Neje_Rolls_14.stlApplication_UC2_Hi2_Uppsala_v3_Neje_Rolls_15.stlApplication_UC2_Hi2_Uppsala_v3_Neje_Rolls_25.stlApplication_UC2_Hi2_Uppsala_v3_Neje_Rolls_26.stlApplication_UC2_Hi2_Uppsala_v3_Neje_Rolls_27.stlApplication_UC2_Hi2_Uppsala_v3_TOTEM_Base_Slide_x_20mmrod_1.stlApplication_UC2_Hi2_Uppsala_v3_TOTEM_Base_Slide_x_20mmrod_23.stlApplication_UC2_Hi2_Uppsala_v3_TOTEM_Base_Slide_y_20mmrod_6.stlApplication_UC2_Hi2_Uppsala_v3_TOTEM_Base_Slide_y_20mmrod_7.stlApplication_UC2_Hi2_Uppsala_v3.stl
-``` 
+```
